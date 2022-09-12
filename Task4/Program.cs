@@ -8,14 +8,47 @@
 //После сортировки
 //1 2 3 4
 //5 7 9 10
+try
+{
+    Console.WriteLine("Введите число строк двумерного массива:");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число столбцов двумерного массива:");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[,] newarray = new int[m,n];
+    FillArray(newarray);
+    PrintArrayTwo(newarray);
+    int[] table = new int[m*n];
+    int x = 0;
+    for(int i = 0; i < newarray.GetLength(0); i++)
+    {
+        for(int j = 0 ; j < newarray.GetLength(1); j++)
+        {
+            table[x] = newarray[i,j];
+            x++;
+            
+        }
+    } 
+    SortArray(table);
+    Console.WriteLine();
+    int[,] newarray2 = new int[m,n];
+    int z = 0;
+    for(int i = 0; i < newarray2.GetLength(0); i++)
+    {
+        for(int j = 0 ; j < newarray2.GetLength(1); j++)
+        {
+            newarray2[i,j] = table[z];
+            z++;
+            
+        }
+    }
+    PrintArrayTwo(newarray2);  
+}
+catch
+{
+    Console.WriteLine("Введите, пожалуйста, целые и положительные числа.");
+}
 
-Console.WriteLine("Введите число строк двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число столбцов двумерного массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] newarray = new int[m,n];
-FillArray(newarray);
-PrintArrayTwo(newarray);
+
 void FillArray(int[,] matrix)
 {
     for(int i = 0; i < matrix.GetLength(0); i++)
@@ -38,20 +71,6 @@ void PrintArrayTwo(int[,] matrix)
     }
 }
 
-int[] table = new int[m*n];
-int x = 0;
-for(int i = 0; i < newarray.GetLength(0); i++)
-{
-    for(int j = 0 ; j < newarray.GetLength(1); j++)
-    {
-        table[x] = newarray[i,j];
-        x++;
-        
-    }
-}
-
-
-
 
 void SortArray(int[] array)
 {
@@ -70,20 +89,6 @@ void SortArray(int[] array)
         array[min_position] = temp;
     }
 }
-SortArray(table);
-Console.WriteLine();
 
 
-int[,] newarray2 = new int[m,n];
-int z = 0;
-for(int i = 0; i < newarray2.GetLength(0); i++)
-{
-    for(int j = 0 ; j < newarray2.GetLength(1); j++)
-    {
-        newarray2[i,j] = table[z];
-        z++;
-        
-    }
-}
-PrintArrayTwo(newarray2);  
 
