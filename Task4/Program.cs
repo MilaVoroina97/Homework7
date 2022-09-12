@@ -57,17 +57,17 @@ void SortArray(int[] array)
 {
     for(int i = 0; i < array.Length - 1; i++)
     {
-        int max_position = i;
+        int min_position = i;
         for(int j = i+1; j < array.Length; j++)
         {
-            if(array[j] > array[max_position]) 
+            if(array[j] < array[min_position]) 
             {
-                max_position = j;
+                min_position = j;
             }
         }
         int temp = array[i];
-        array[i] = array[max_position];
-        array[max_position] = temp;
+        array[i] = array[min_position];
+        array[min_position] = temp;
     }
 }
 SortArray(table);
