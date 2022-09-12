@@ -5,13 +5,22 @@
 //5 9 2 3
 //8 4 2 4
 //Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-Console.WriteLine("Введите число строк двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число столбцов двумерного массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] newarray = new int[m,n];
-FillArray(newarray);
-PrintArray(newarray);
+try
+{
+    Console.WriteLine("Введите число строк двумерного массива:");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число столбцов двумерного массива:");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[,] newarray = new int[m,n];
+    FillArray(newarray);
+    PrintArray(newarray);
+    ArithmeticMeanInColumns(newarray);
+}
+catch
+{
+    Console.WriteLine("Необходимо вводить только целые и положительные числа.");
+}
+
 void FillArray(int[,] matrix)
 {
     for(int i = 0; i < matrix.GetLength(0); i++)
@@ -49,5 +58,5 @@ void ArithmeticMeanInColumns(int[,] matrix)
     }
 
 }
-ArithmeticMeanInColumns(newarray);
+
 
