@@ -11,26 +11,35 @@
 
 //17 -> такого числа в массиве нет
 
+try
+{
+    Console.WriteLine("Введите число строк двумерного массива:");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите число столбцов двумерного массива:");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[,] newarray = new int[m,n];
+    Console.WriteLine("Введите номер строки элемента:");
+    int x = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите номер столбца элемента:");
+    int y = Convert.ToInt32(Console.ReadLine());
+    FillArray(newarray);
+    PrintArray(newarray);
+    if (x > m || y > n)
+    {
+        Console.WriteLine($"Такого числа на позиции строки {x} и столбца {y} в массиве нет.");
+    }
+    else
+    {
+        Console.WriteLine($"Число на позиции строки {x} и столбца {y}: {newarray[x-1,y-1]}");
+    }
+}
+catch 
+{
+    
+    Console.WriteLine("Необходимо вводить только целые и положительные числа.");
+}
 
-Console.WriteLine("Введите число строк двумерного массива:");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число столбцов двумерного массива:");
-int n = Convert.ToInt32(Console.ReadLine());
-int[,] newarray = new int[m,n];
-Console.WriteLine("Введите номер строки элемента:");
-int x = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите номер столбца элемента:");
-int y = Convert.ToInt32(Console.ReadLine());
-FillArray(newarray);
-PrintArray(newarray);
-if(x > m || y > n)
-{
-    Console.WriteLine("Такого числа в массиве нет.");
-}
-else
-{
-    Console.WriteLine($"Число на позиции строки {x} и столбца {y}: {newarray[x,y]}");
-}
+
 void FillArray(int[,] matrix)
 {
     for(int i = 0; i < matrix.GetLength(0); i++)
